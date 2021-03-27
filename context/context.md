@@ -2,6 +2,8 @@
 
 > [深度解密Go语言之context](https://zhuanlan.zhihu.com/p/68792989)
 
+> [腾讯云开发者手册 context](https://cloud.tencent.com/developer/section/1140703)
+
 
 ### 什么是 context
 GO 1.7标准库引入context,中文译作"上下文"，准确说它是goroutine的上下文，包含goroutine 的运行状态，环境，现场等信息。
