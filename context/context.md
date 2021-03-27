@@ -1,3 +1,8 @@
+## context
+
+> [深度解密Go语言之context](https://zhuanlan.zhihu.com/p/68792989)
+
+
 ### 什么是 context
 GO 1.7标准库引入context,中文译作"上下文"，准确说它是goroutine的上下文，包含goroutine 的运行状态，环境，现场等信息。
 
@@ -10,4 +15,7 @@ context 主要用来在goroutine 之间传递上下文信息，包括: 取消信
 
 ### 为什么有 context
 Go 通常用来写后台服务，通常只需要几行代码，就可以搭建一个http server.
+
+在 Go 的 server 里，通常每来一个请求都会启动若干个 goroutine 同时工作: 有些去数据库拿数据，有些调用下游接口获取相关数据......
+
 
