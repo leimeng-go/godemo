@@ -2,6 +2,7 @@ package error
 
 import (
 	"database/sql"
+  gerrors "github.com/pkg/errors"
 	"errors"
 	"testing"
 )
@@ -26,4 +27,8 @@ func TestNewCustomError1(t *testing.T){
 func TestMyError(t *testing.T){
 	e:=MyError{err: errors.New("前"),msg:"后"}
 	t.Log(e.Error())
+}
+
+func innerError()error{
+   return gerrors.Wrap(sql.ErrNoRows,"inner")
 }
