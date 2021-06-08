@@ -15,6 +15,8 @@ func NewMongoClient(url string){
    client,err:=mongo.Connect(ctx,options.Client().ApplyURI("mongodb://root:181205@mongo-1:27011,mongo-2:27012,mongo-3:27013/?replicaSet=rs&authSource=admin"))
    if err!=nil{
 	 log.Error(err.Error())
+	 return
    }
+   client.Ping()
    
 }
