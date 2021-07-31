@@ -19,6 +19,12 @@ func TestFlag(t *testing.T) {
 	args := os.Args
 	switch args[0] {
 	case "go":
-
+		t.Logf("")
 	}
+}
+
+func TestHello(t *testing.T) {
+	flag.Parse()
+	content := *flag.String("test", "默认值", "这是一个测试命令")
+	t.Log(content)
 }
