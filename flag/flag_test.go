@@ -23,9 +23,13 @@ func TestFlag(t *testing.T) {
 	}
 }
 
+// go test -v -args "value hello" -run ^TestHello$ flag_test.go  
+
 func TestHello(t *testing.T) {
-	flag.Parse()
+	append(os.Args, )
 	t.Logf("参数内容: %+v", os.Args)
-	content := flag.String("value", "默认值", "这是一个测试命令")
-	t.Log(*content)
+	var name string
+	flag.StringVar(&name,"name", "333", "这是一个测试命令")
+	flag.Parse()
+	t.Log(name)
 }
