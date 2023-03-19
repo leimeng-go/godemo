@@ -27,3 +27,28 @@ type optionFunc func(*options)
 func (f optionFunc) apply(o *options) {
 	f.apply(o)
 }
+func WithTimeout(t time.Duration) Option {
+	return optionFunc(func(o *options) {
+		o.timeout = t
+	})
+}
+func WithCaching(cache bool) Option {
+	return optionFunc(func(o *options) {
+		o.caching = cache
+	})
+}
+
+func NewConnect(addr string, opts ...Option) (*Connection, error) {
+	options := options{
+		timeout: defaultTimeout,
+		caching: defaultCaching,
+	}
+	for _, o := range opts {
+		o.apply(&options)
+	}
+	return &Connection{
+		addr:    addr,
+		cache:   options.caching,
+		timeout: options.timeout,
+	}, nil
+}
